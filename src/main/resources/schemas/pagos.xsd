@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.edu.cibertec.com/pagos"
+	xmlns:tns="http://www.edu.cibertec.com/pagos"
+	elementFormDefault="qualified">
+
+	<xsd:element name="ConsultaPagosRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="fechaConsulta" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ListadoPagos">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="pago" type="tns:DetallePago" maxOccurs="unbounded" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="DetallePago">
+		<xsd:sequence>
+			<xsd:element name="idPago" type="xsd:long" />
+			<xsd:element name="fechaPago" type="xsd:string" />
+			<xsd:element name="montoTotalPago" type="xsd:double" />
+			<xsd:element name="moneda" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>
+
